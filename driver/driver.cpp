@@ -442,13 +442,14 @@ DeviceCleanup(WDFOBJECT hDevice)
     WdfWaitLockRelease(global.collection_lock);
 }
 
-VOID WriteDelay()
+VOID 
+WriteDelay()
+
 {
     LARGE_INTEGER interval;
     interval.QuadPart = 0;  // Set delay to 0
     KeDelayExecutionThread(KernelMode, FALSE, &interval);
 }
-
 
 NTSTATUS
 DriverEntry(
